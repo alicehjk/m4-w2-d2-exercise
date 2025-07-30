@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script>
-            function clickSessionCounter() {
-                if( /*replace with typeof*/ ) { // this means Storage was never created
-                    if () { // if sessionStorage exist Add 1
-                        
-                    } else {
-                         // else set sessionStorage to 1
-                    }
-                    
-                } else {
-                    
-                }
-            }
-        </script>
-    </head>
-     
-    <body>
-        <p><button onclick="" type="button">Click me!</button></p>
-        <div id="result"></div>
-        <p>Click the button to see the counter increase.</p>
-        <p>Close the browser tab, to reset the counter.</p>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Session Demo</title>
+</head>
+<body>
+  <h1>Session Counter</h1>
+  <p><button onclick="clickSessionCounter()" type="button">Click me!</button></p>
+  <p id="output"></p>
+
+  <script>
+    if (!sessionStorage.clicks) {
+      sessionStorage.clicks = 0;
+    }
+
+    function clickSessionCounter() {
+      sessionStorage.clicks = Number(sessionStorage.clicks) + 1;
+      document.getElementById("output").innerText = "You clicked " + sessionStorage.clicks + " times.";
+    }
+  </script>
+</body>
 </html>
